@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fan Menu (like Path Menu) using jquery and CSS3</title>
+		<link rel="stylesheet" href="css/main.css"/>
+		<link rel="stylesheet" href="css/jquery.fanmenu.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.fanmenu.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+	</head>
+	<body>
+		<div class='content'>
+			<h2>Fan Menu (like Path Menu) using jquery and CSS3 </h2>
+			
+			<div class='demo-container'>
+				<div class='input-form'>
+					
+					<form class="form-horizontal">
+					  <fieldset>
+						
+						<div class="control-group">
+						  <label class="control-label" for="s_angle">Start Angle</label>
+						  <div class="controls">
+							<div class='input-append'>
+								<input type="text" class="input-small" id='s_angle' required  placeholder="Enter a Angle"  pattern="[0-9]*" value='0'>
+								<span class="add-on">deg</span>
+							</div>
+						  </div>
+						</div>
+						
+						<div class="control-group">
+						  <label class="control-label" for="diff_angle">Displacement Angle</label>
+						  <div class="controls">
+							<div class='input-append'>
+								<input type="text" class="input-small" id='diff_angle' required  placeholder="Enter a Angle"  pattern="[0-9]*" value='90'>
+								<span class="add-on">deg</span>
+							</div>
+						  </div>
+						</div>
+						
+						<div class="control-group">
+						  <label class="control-label" for="radius">Radius Of Circle</label>
+						  <div class="controls">
+							<div class='input-append'>
+								<input type="text" class="input-small" id='radius' required  placeholder="Enter a Radius"  pattern="[0-9]*" value='100'>
+								<span class="add-on">deg</span>
+							</div>
+						  </div>
+						</div>
+						<div class="control-group">
+							<div class="controls">
+								<div class="btn" class='btn btn-small ' id='submit_button'><i class="icon-refresh"></i> Refresh</a></div>
+							 </div>
+						</div>
+					  </fieldset>
+					</form>
+				</div>
+				
+				<div class='demo'>
+					<p id='info'>Updated..</p>
+					<div id='testMenu' class="fm_wrap" >
+						<a class="fm_btntoggle" href="#" title="Toggle"><i>+</i></a>
+						<ul class="fm_list">
+							<li><a href="#"><i class="icon-user icon-white"></i></a></li>
+							<li><a href="#"><i class="icon-heart icon-white"></i></a></li>
+							<li><a href="#"><i class="icon-music icon-white"></i></a></li>
+							<li><a href="#"><i class="icon-home icon-white"></i></a></li>
+							<li><a href="#"><i class="icon-flag icon-white"></i></a></li>
+						</ul>
+					</div>				
+				</div>
+				<div class='drag'>* Draggable Element</div>
+				<div class='clearfix'></div>
+			</div>
+		</div>
+		<script>
+		
+		$(function() {
+
+			var initMenu=function(refresh){		
+				$('#testMenu').fanmenu({
+					'initAngle':parseInt($('#s_angle').val()),
+					'angleDisplay' : parseInt($('#diff_angle').val()),
+					'radius':parseInt($('#radius').val()),
+					'hideOnClick':true
+				},refresh);			
+			},reset= function(){
+				if($(".menu_button").hasClass('btn-rotate'))
+				$(".menu_button").trigger('click');
+				
+				$("#info").fadeIn("slow").fadeOut("slow");
+				initMenu(true);
+			};
+
+			$("#submit_button").click(function() {reset(); }); 
+			$( "#testMenu" ).draggable();
+			
+			initMenu();
+			
+		});
+		
+		</script>
+
+	</body>
+</html>

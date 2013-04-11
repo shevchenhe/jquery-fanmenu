@@ -1,0 +1,104 @@
+@color: #6d492a;
+@colorToggle:      #02c4fb;
+@colorToggle1:     darken(@colorToggle,10%);
+// CSS Reset
+@import "reset.less";
+
+// Core variables and mixins
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less";
+
+
+.fm_wrap{
+	height:200px;
+	position:relative;
+}
+
+.fm_btntoggle{
+	position:absolute;
+	bottom:0;
+	left:0;
+	.border-radius(50%);
+	height:36px;
+	width:36px;
+	line-height: 36px;
+	text-align: center;
+	border:4px solid #fff;
+	color:#fff;
+	text-decoration: none;
+	.box-shadow(~'rgba(0,0,0,0.3) 0 3px 8px 0,rgba(0,0,0,0.2) 0 0 0 1px,inset rgba(0,0,0,0.3) 0 0 0 1px,inset rgba(255,255,255,0.3) 0 1px 0 1px');
+	overflow:hidden;
+	
+	#gradient.vertical(@colorToggle, @colorToggle1);
+	
+	z-index:9999;
+	outline:0;
+
+	
+	i{
+		display: inline-block;
+		.size(100%,100%);
+		overflow: hidden;
+		font-size:30px;
+		font-family: arial;
+		.transition(.4s ease);
+	}
+} 
+.fm_list{
+	bottom: 18px;
+	left: 5px;
+	position: absolute;
+	li{
+		position:absolute;
+		display:block;
+		top: 0px;
+		left: 0px;
+		.transition(.3s);
+		a{
+			position:relative;
+			display:block;
+			border-radius:50%;
+			.size(26px, 26px);
+			line-height: 26px;
+			text-align: center;
+			text-decoration: none;
+			color:#ddd;
+			border:3px solid #fff;
+			box-shadow:rgba(0,0,0,0.4) 0 0 5px 0,rgba(0,0,0,0.2) 0 0 0 1px,inset rgba(0,0,0,0.5) 0 0 2px 0;
+			overflow:hidden;
+			background:#444;
+			
+			i {
+				.opacity(90);
+				.transition(.4s ease)
+			}
+			&:hover{
+				color:#fff;
+				i{
+					.opacity(100);
+				}
+			}
+		}
+	}
+}
+.fm_rotate i{
+	.rotate(-135deg);
+}
+
+.fm_active li a{
+	.animation(expand,.6s,ease,1,backwards);
+}
+
+
+@-webkit-keyframes expand{
+	0%{top:0px}
+	50%{top:-10px}
+	70%{top:10px}
+	100%{top:0px}
+}
+@-moz-keyframes expand{
+	0%{top:0px}
+	50%{top:-10px}
+	70%{top:10px}
+	100%{top:0px}
+}
