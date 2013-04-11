@@ -1514,7 +1514,7 @@ body {
   margin: 0 auto;
 }
 .content h2 {
-  color: #CC662C;
+  color: #333;
   margin: 0 0 45px;
   padding: 20px;
   text-align: center;
@@ -1525,9 +1525,11 @@ body {
   color: #666;
   margin-left: 10px;
 }
-.outer_container {
-  height: 200px;
-  position: relative;
+.content .c_txt1 {
+  color: #CC662C;
+}
+.gist {
+  margin-top: 25px;
 }
 .demo-container {
   padding: 10px;
@@ -1556,6 +1558,7 @@ body {
   color: #888;
   float: right;
   margin-top: 5px;
+  margin-right: 10px;
 }
 .demo-container #info {
   top: 0pt;

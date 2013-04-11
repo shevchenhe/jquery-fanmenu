@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Fan Menu (like Path Menu) using jquery and CSS3</title>
+		<title>jQuery.fanmenu.js - Fan menu (like Path Menu) using jquery and CSS3</title>
 		<link rel="stylesheet" href="css/main.css"/>
 		<link rel="stylesheet" href="css/jquery.fanmenu.css"/>
 		<script src="js/jquery.min.js"></script>
@@ -10,8 +10,8 @@
 	</head>
 	<body>
 		<div class='content'>
-			<h2>Fan Menu (like Path Menu) using jquery and CSS3 </h2>
-			
+			<h2>jQuery.fanmenu.js - <span class="c_txt1">Fan Menu</span> (like Path Menu) using jquery and CSS3 </h2>
+			<a href="https://github.com/mamboer/jquery-fanmenu"><img style="position: absolute; top: 0; right: 30px; border: 0;" src="https://github.com/jamesflorentino/fork-ribbons/raw/master/ribbons/white-black.png" alt="Fork me on GitHub"></a>
 			<div class='demo-container'>
 				<div class='input-form'>
 					
@@ -71,29 +71,31 @@
 				</div>
 				<div class='drag'>* Draggable Element</div>
 				<div class='clearfix'></div>
+				<script src="https://gist.github.com/mamboer/5363834.js"></script>
 			</div>
 		</div>
 		<script>
 		
 		$(function() {
 
-			var initMenu=function(refresh){		
-				$('#testMenu').fanmenu({
+			var $testMenu = $('#testMenu'),
+				initMenu=function(refresh){		
+				$testMenu.fanmenu({
 					'initAngle':parseInt($('#s_angle').val()),
 					'angleDisplay' : parseInt($('#diff_angle').val()),
 					'radius':parseInt($('#radius').val()),
 					'hideOnClick':true
 				},refresh);			
 			},reset= function(){
-				if($(".menu_button").hasClass('btn-rotate'))
-				$(".menu_button").trigger('click');
+				$testMenu.fanmenu('close');
 				
 				$("#info").fadeIn("slow").fadeOut("slow");
 				initMenu(true);
+				$testMenu.fanmenu('open');
 			};
 
 			$("#submit_button").click(function() {reset(); }); 
-			$( "#testMenu" ).draggable();
+			$testMenu.draggable();
 			
 			initMenu();
 			
