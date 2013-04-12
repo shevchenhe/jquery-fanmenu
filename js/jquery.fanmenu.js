@@ -3,7 +3,7 @@
   @name jquery.fanmenu.js
   @author levinhuang (lv)
   @version 1.0.1
-  @date 04/11/2013
+  @date 04/12/2013
   @license Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
 */
 ;(function($) {
@@ -27,8 +27,7 @@
 						me.toggleFan(0);
 					}else{
 						me.toggleFan(1);
-					}	
-					me.$toggle.toggleClass(me.opts.clToggleEffect);
+					}
 					return false;
 				});
 
@@ -114,8 +113,10 @@
 			
 			if(flag==0){//close
 				this.$d.removeClass(this.opts.clActive).addClass(this.opts.clDeactive);
+				this.$toggle.removeClass(me.opts.clToggleEffect);
 			}else{
 				this.$d.removeClass(this.opts.clDeactive).addClass(this.opts.clActive);
+				this.$toggle.addClass(me.opts.clToggleEffect);
 			}
 			
 		},
