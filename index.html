@@ -49,7 +49,7 @@
 						</div>
 						<div class="control-group">
 							<div class="controls">
-								<div class="btn" class='btn btn-small ' id='submit_button'><i class="icon-refresh"></i> Refresh</a></div>
+								<div class="btn fm_antihide" id='submit_button'><i class="icon-refresh"></i> Refresh</a></div>
 							 </div>
 						</div>
 					  </fieldset>
@@ -67,7 +67,7 @@
 							<li><a href="#"><i class="icon-home icon-white"></i></a></li>
 							<li><a href="#"><i class="icon-flag icon-white"></i></a></li>
 						</ul>
-					</div>				
+					</div>
 				</div>
 				<div class='drag'>* Draggable Element</div>
 				<div class='clearfix'></div>
@@ -84,8 +84,13 @@
 					'initAngle':parseInt($('#s_angle').val()),
 					'angleDisplay' : parseInt($('#diff_angle').val()),
 					'radius':parseInt($('#radius').val()),
-					'hideOnClick':true
-				},refresh);			
+					'hideOnClick':true,
+					//donot hide the menu when clicking on these elements with className 'fm_antihide'
+					'hideOnClickExcept':'fm_antihide'
+				},refresh);
+
+				$testMenu.fanmenu('open');
+
 			},reset= function(){
 				$testMenu.fanmenu('close');
 				
